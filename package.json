@@ -1,0 +1,17 @@
+{
+  "name": "node-hackteen",
+  "version": "1.0.0",
+  "description": "primeira api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./",
+    "start:dev": "nodemon"
+  },
+  "keywords": [
+    "primeira",
+    "api"
+  ],
+  "author": "Murilo Bauck",
+  "license": "ISC"
+}
