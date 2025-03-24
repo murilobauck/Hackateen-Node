@@ -13,5 +13,6 @@
     "api"
   ],
   "author": "Murilo Bauck",
-  "license": "ISC"
+  "license": "ISC",
+  "type": "module"
 }
