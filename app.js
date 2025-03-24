@@ -1,5 +1,6 @@
 import http from 'http';
 import fs from 'fs';
+import rotas from './routes.js';
 
 fs.writeFile('./mensagem.txt', 'Hello Fille!', 'utf-8', (erro) => {
   if (erro){
@@ -20,11 +21,9 @@ fs.readFile('./mensagem.txt', 'utf-8', (erro, conteudo) => {
   iniciarServidorHttp(conteudo);
 });
 
-function iniciarServidorHttp(mensagem){
+function iniciarServidorHttp(conteudo){
   const servidor = http.createServer((req, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.end(mensagem)
+    rotas(req, res, { conteudo });
   });
   
   const porta = 3000;
