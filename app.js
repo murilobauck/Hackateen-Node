@@ -1,10 +1,20 @@
 import http from 'http';
 import fs from 'fs';
+import sqlite3 from 'sqlite3';
 import rotas from './routes.js';
+
+const db = new sqlite3.Database('./tic.db', (erro) => {
+  if (erro) {
+    console.log('Falha ao conectar ao banco de dados');
+    return;
+  }
+
+  console.log('Banco de dados inicializado com sucesso');
+});
 
 fs.writeFile('./mensagem.txt', 'Hello Fille!', 'utf-8', (erro) => {
   if (erro) {
-    console.log('Falha ao esrevre o arquivo', erro);
+    console.log('Falha ao escrever o arquivo', erro);
     return;
   }
   console.log('Arquivo foi criado com sucesso');
