@@ -22,3 +22,21 @@ export const Produto = sequelize.define('produto', {
     allowNull: false
   },
 });
+
+export async function criarProduto(produto) {
+  try {
+    await Produto.create(produto)
+    console.log(`O produto ${produto.nome} foi criado com sucesso`);
+  } catch(erro) {
+    console.log('Falha ao criar o produto', erro);
+  }
+}
+
+export async function leProdutos() {
+  try {
+    const resultado = await Produto.findAll();
+    console.log(`Produtos consultados com sucesso`, resultado);
+  } catch(erro) {
+    console.log('Falha ao buscar o produto', erro);
+  }
+}
